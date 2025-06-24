@@ -64,11 +64,11 @@ const BestSellers = ({ dishes }) => {
                   {dish.name}
                 </h2>
                 <div className="ml-auto">
-                  <p className="hidden md:inline-block font-medium text-white bg-[#F03328] text-xl py-2.5 px-6 rounded-4xl">
+                  {/* <p className="hidden md:inline-block font-medium text-white bg-[#F03328] text-xl py-2.5 px-6 rounded-4xl">
                     {dish.category}
-                  </p>
+                  </p> */}
 
-                  <button className="inline-block md:hidden text-nowrap font-medium text-white bg-[#F03328] text-xl py-1 px-2.5 rounded-2xl">
+                  <button className="text-nowrap font-medium text-white bg-[#F03328] text-xl py-1 px-2.5 rounded-2xl md:py-2.5 md:px-6 md:rounded-4xl">
                     Buy Now
                   </button>
                 </div>
