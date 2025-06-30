@@ -30,7 +30,7 @@ const teamMembers = [
 
 const Members = () => {
   return (
-    <div className="bg-[url('/members-bg.png')] bg-cover bg-no-repeat bg-center h-[200px] md:h-[460px] text-center relative mt-[-4px]">
+    <div className="bg-[url('/members-bg.png')] bg-cover bg-no-repeat bg-center h-[200px] md:h-[460px] text-center relative mt-[-4px] mb-[460px] sm:mb-[200px] ">
       <div className="hidden md:block max-w-[442px] mx-auto text-white pt-28">
         <h3 className="font-bold text-3xl lg:text-4xl 2xl:text-5xl mb-2">
           Team Members

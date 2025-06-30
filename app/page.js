@@ -2,6 +2,7 @@ import HeroSection from "@/app/_components/HeroSection";
 import BestSellers from "@/app/_components/BestSellers";
 import Feedback from "@/app/_components/Feedback";
 import Members from "@/app/_components/Members";
+import Associates from "@/app/_components/Associates";
 
 const dishes = [
   {
@@ -82,6 +83,7 @@ export default function Home() {
       <BestSellers dishes={dishes} />
       <Feedback feedbacks={feedbacks} />
       <Members />
+      <Associates />
     </div>
   );
 }

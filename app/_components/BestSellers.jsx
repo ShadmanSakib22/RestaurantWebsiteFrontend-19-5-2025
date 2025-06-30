@@ -68,7 +68,7 @@ const BestSellers = ({ dishes }) => {
                     {dish.category}
                   </p> */}
 
-                  <button className="text-nowrap font-medium text-white bg-[#F03328] text-xl py-1 px-2.5 rounded-2xl md:py-2.5 md:px-6 md:rounded-4xl">
+                  <button className="text-nowrap cursor-pointer font-medium text-white bg-[#F03328] text-xl py-1 px-2.5 rounded-2xl md:py-2.5 md:px-6 md:rounded-4xl">
                     Buy Now
                   </button>
                 </div>
