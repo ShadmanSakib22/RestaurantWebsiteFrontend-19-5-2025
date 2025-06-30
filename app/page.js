@@ -1,5 +1,7 @@
 import HeroSection from "@/app/_components/HeroSection";
 import BestSellers from "@/app/_components/BestSellers";
+import Feedback from "@/app/_components/Feedback";
+import Members from "@/app/_components/Members";
 
 const dishes = [
   {
@@ -52,11 +54,34 @@ const dishes = [
   },
 ];
 
+const feedbacks = [
+  {
+    text: "Fresh, flavorful, and just the right amount of heat. The tuna was buttery, the rice well-seasoned, and the chili mayo added a great kick. A must-try for sushi lovers.",
+    name: "Jane Doe",
+    title: "Food Blogger",
+    image: "/person.png",
+  },
+  {
+    text: "Amazing experience! The sushi was fresh and delicious. Highly recommend.",
+    name: "John Smith",
+    title: "Chef",
+    image: "/person.png",
+  },
+  {
+    text: "Best sushi in town. The flavors are incredible and the staff is friendly.",
+    name: "Emily Lee",
+    title: "Customer",
+    image: "/person.png",
+  },
+];
+
 export default function Home() {
   return (
     <div>
       <HeroSection />
       <BestSellers dishes={dishes} />
+      <Feedback feedbacks={feedbacks} />
+      <Members />
     </div>
   );
 }

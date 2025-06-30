@@ -17,3 +17,25 @@ body {
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
 }
+
+.swiper-pagination-bullets-dynamic {
+  position: relative !important;
+  width: 200% !important;
+  bottom: 40px !important;
+  right: 0 !important;
+  left: auto !important;
+  text-align: right !important;
+}
+
+.swiper-pagination-bullet-active-main {
+  background-color: red !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-pagination-bullet-active-main {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
