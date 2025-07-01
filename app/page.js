@@ -3,13 +3,15 @@ import BestSellers from "@/app/_components/BestSellers";
 import Feedback from "@/app/_components/Feedback";
 import Members from "@/app/_components/Members";
 import Associates from "@/app/_components/Associates";
+import { getDishes } from "@/app/actions/dishActions";
 
-const dishes = [
+// Fallback dishes in case database is empty or fails
+const fallbackDishes = [
   {
     id: 1,
     name: "Salad Fry",
     category: "Breakfast",
-    rating: "5",
+    rating: 5,
     price: 230,
     image: "/placeholder.png",
   },
@@ -17,7 +19,7 @@ const dishes = [
     id: 2,
     name: "Chicken Fry",
     category: "Lunch",
-    rating: "4.5",
+    rating: 4.5,
     price: 350,
     image: "/placeholder.png",
   },
@@ -25,7 +27,7 @@ const dishes = [
     id: 3,
     name: "Fish Fry",
     category: "Dinner",
-    rating: "4.8",
+    rating: 4.8,
     price: 400,
     image: "/placeholder.png",
   },
@@ -33,7 +35,7 @@ const dishes = [
     id: 4,
     name: "Vegetable Salad",
     category: "Breakfast",
-    rating: "4.2",
+    rating: 4.2,
     price: 180,
     image: "/placeholder.png",
   },
@@ -41,7 +43,7 @@ const dishes = [
     id: 5,
     name: "Fruit Salad",
     category: "Lunch",
-    rating: "4.6",
+    rating: 4.6,
     price: 220,
     image: "/placeholder.png",
   },
@@ -49,7 +51,7 @@ const dishes = [
     id: 6,
     name: "Grilled Chicken",
     category: "Dinner",
-    rating: "4.9",
+    rating: 4.9,
     price: 500,
     image: "/placeholder.png",
   },
@@ -76,7 +78,11 @@ const feedbacks = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  // Get dishes from database, fallback to static data if needed
+  const dbDishes = await getDishes();
+  const dishes = [...dbDishes, ...fallbackDishes];
+
   return (
     <div>
       <HeroSection />
