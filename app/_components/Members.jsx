@@ -41,7 +41,7 @@ const Members = () => {
         </p>
       </div>
       {/* Images */}
-      <div className="container max-w-[1300px] px-4 mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 justify-center absolute bottom-[-400px] sm:bottom-[-140px] left-0 right-0">
+      <div className="container max-w-[1300px] px-4 mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 justify-center absolute bottom-[-400px] sm:bottom-[-110px] lg:bottom-[-160px] left-0 right-0">
         {teamMembers.map((member) => (
           <div key={member.id}>
             <div className="relative max-w-[160px] md:max-w-[312px] mx-auto aspect-square">

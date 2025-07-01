@@ -1,5 +1,10 @@
 "use client";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
 
 const Associates = () => {
   const partners = [
@@ -11,13 +16,6 @@ const Associates = () => {
     { id: 6, name: "Bakery", logo: "/associates/Bakery.png" },
   ];
 
-  // Duplicate partners for a seamless infinite scroll effect
-  const duplicatedPartners = [...partners, ...partners];
-
-  const estimatedLogoMaxWidth = 250;
-  const smallScreenMargin = 32; // Total horizontal margin for mx-4 (16px left + 16px right)
-  const largeScreenMargin = 48; // Total horizontal margin for md:mx-6 (24px left + 24px right)
-
   return (
     <div className="container max-w-[1300px] px-4 mx-auto flex flex-col items-center mb-20 md:mb-28 lg:mb-32">
       <p className="text-[#A52A2A] text-lg mb-2">Partners & Clients</p>
@@ -25,59 +23,50 @@ const Associates = () => {
         We work with the best people
       </h3>
 
-      {/* Carousel container */}
-      <div className="w-full overflow-hidden">
-        <div className="flex animate-infinite-scroll">
-          {duplicatedPartners.map((partner, index) => (
-            <div
-              key={`${partner.id}-${index}`}
-              className="flex-shrink-0 mx-4 md:mx-6"
-            >
-              <div className="relative h-[68px] md:h-[128px] flex items-center justify-center">
+      {/* Swiper Carousel */}
+      <div className="w-full">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={32}
+          slidesPerView={3}
+          loop={true}
+          autoplay={{
+            delay: 1,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          speed={2000}
+          freeMode={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 5,
+              spaceBetween: 48,
+            },
+          }}
+          className="associates-swiper"
+        >
+          {partners.map((partner) => (
+            <SwiperSlide key={partner.id}>
+              <div className="flex items-center justify-center h-[68px] md:h-[128px]">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  width={estimatedLogoMaxWidth}
+                  width={240}
                   height={128}
                   className="w-auto h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
 
-      <style jsx>{`
-        @keyframes infinite-scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-infinite-scroll {
-          animation: infinite-scroll 30s linear infinite;
-          width: calc(
-            (${estimatedLogoMaxWidth}px + ${smallScreenMargin}px) *
-              ${partners.length} * 2
-          );
-          white-space: nowrap;
-        }
-
-        .animate-infinite-scroll:hover {
-          animation-play-state: paused;
-        }
-
-        @media (min-width: 768px) {
-          .animate-infinite-scroll {
-            animation-duration: 20s;
-            width: calc(
-              (${estimatedLogoMaxWidth}px + ${largeScreenMargin}px) *
-                ${partners.length} * 2
-            );
-          }
+      <style jsx global>{`
+        .associates-swiper .swiper-wrapper {
+          transition-timing-function: linear !important;
         }
       `}</style>
     </div>
